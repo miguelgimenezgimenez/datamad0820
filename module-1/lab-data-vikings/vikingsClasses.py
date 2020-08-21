@@ -12,7 +12,7 @@ class Soldier:
         return self.strength
 
     def receiveDamage(self, damage):
-        print('receiveddamaage')
+
         self.health = self.health - damage
 
 
@@ -80,12 +80,12 @@ class War:
             index_of_viking = self.vikingArmy.index(viking)
             print(index_of_viking)
             self.vikingArmy.pop(index_of_viking)
-        
+        return out
     def showStatus(self):
         vikings= len(self.vikingArmy)
         saxons= len(self.saxonArmy)
         if not vikings:
-            return "Vikings have won the war of the century!"
-        if not saxons:
             return "Saxons have fought for their lives and survive another day..."
+        if not saxons:
+            return "Vikings have won the war of the century!"
         return "Vikings and Saxons are still in the thick of battle."
