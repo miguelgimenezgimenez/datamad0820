@@ -76,9 +76,7 @@ class War:
         viking = random.choice(self.vikingArmy)
         out = viking.receiveDamage(saxon.strength)
         if viking.health <= 0:
-            print('dead')
             index_of_viking = self.vikingArmy.index(viking)
-            print(index_of_viking)
             self.vikingArmy.pop(index_of_viking)
         return out
     def showStatus(self):
