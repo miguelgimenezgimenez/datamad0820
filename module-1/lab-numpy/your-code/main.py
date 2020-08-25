@@ -145,3 +145,65 @@ for firstIndex,firstDimension in enumerate(d):
 
 
 print(f)
+'''
+BONUS
+'''
+# 1. Weird Multiplication
+
+def weird_mul(A, B):
+    if(len(np.shape(A))!=2 or len(np.shape(B))!=2  ):
+        return None
+
+    if (np.shape(A)[0]==0 or np.shape(B)[0]==0 
+       or np.shape(A)[1]==0 or np.shape(B)[1]==0
+       ):
+        return None
+
+    new_shape = (np.shape(A)[0]*np.shape(B)[0],np.shape(A)[1]*np.shape(B)[1]  )
+    output = []
+     
+    for sub in A:
+        for j in B:
+            for i in sub:
+                output.append(j*i)
+    output = np.array(output).reshape(new_shape)
+    return output
+
+# 2. Insert Dashes
+
+import re
+
+def insert_dash(num):
+    return re.sub(r'([13579])(?=[13579])', r'\1-', str(num))
+
+
+
+# 3.Thinfull logic drills :
+import math
+def color_probability(color, texture):
+    print(color,texture)
+    texture_probabilities= {
+        "smooth":0.3,
+        "bumpy":0.7
+    }
+    color_probabilities = {
+        "red":0.5,
+        'yellow':0.3,
+        'green':0.2
+    }
+    prior_probabilities ={
+        'bumpy': {
+            "red":4/5,
+            "yellow":2/3,
+            "green":1/2
+        },
+        "smooth":{
+            "red":1/5,
+            "yellow":1/3,
+            "green":1/2
+        }
+    }
+    
+    result = prior_probabilities[texture][color]*color_probabilities[color]/texture_probabilities[texture]
+    result = math.trunc(result*100)
+    return str(result / 100)
