@@ -1,0 +1,79 @@
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+
+CREATE SCHEMA IF NOT EXISTS `lab_mysql` DEFAULT CHARACTER SET utf8 ;
+
+
+CREATE TABLE IF NOT EXISTS `lab_mysql`.`Car` (
+
+  `VIN` VARCHAR(45) NOT NULL,
+  `Manufacturer` VARCHAR(45) NULL DEFAULT NULL,
+  `Model` VARCHAR(45) NULL DEFAULT NULL,
+  `Year` INT NULL DEFAULT NULL,
+  `Color` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`VIN`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `lab_mysql`.`Customer` (
+  `idCustomer` INT NOT NULL,
+  `name` VARCHAR(45) NULL DEFAULT NULL,
+  `phone number` VARCHAR(45) NULL DEFAULT NULL,
+  `email` VARCHAR(45) NULL DEFAULT NULL,
+  `address` VARCHAR(45) NULL DEFAULT NULL,
+  `city` VARCHAR(45) NULL DEFAULT NULL,
+  `state/province` VARCHAR(45) NULL DEFAULT NULL,
+  `country` VARCHAR(45) NULL DEFAULT NULL,
+  `zip code` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`idCustomer`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `lab_mysql`.`Salesperson` (
+  `StaffId` INT NOT NULL,
+  `name` VARCHAR(45) NULL DEFAULT NULL,
+  `Store` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`StaffId`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `lab_mysql`.`invoice` (
+  `date` DATETIME NOT NULL,
+  `invoice number` VARCHAR(45) NULL,
+  `Car_VIN` VARCHAR(45) NOT NULL,
+  `Salesperson_StaffId` INT NOT NULL,
+  `Customer_idCustomer` INT NOT NULL,
+  PRIMARY KEY (`date`, `Car_VIN`, `Salesperson_StaffId`, `Customer_idCustomer`),
+  INDEX `fk_invoice_Car_idx` (`Car_VIN` ASC) VISIBLE,
+  INDEX `fk_invoice_Salesperson1_idx` (`Salesperson_StaffId` ASC) VISIBLE,
+  INDEX `fk_invoice_Customer1_idx` (`Customer_idCustomer` ASC) VISIBLE,
+  CONSTRAINT `fk_invoice_Car`
+    FOREIGN KEY (`Car_VIN`)
+    REFERENCES `lab_mysql`.`Car` (`VIN`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_invoice_Salesperson1`
+    FOREIGN KEY (`Salesperson_StaffId`)
+    REFERENCES `lab_mysql`.`Salesperson` (`StaffId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_invoice_Customer1`
+    FOREIGN KEY (`Customer_idCustomer`)
+    REFERENCES `lab_mysql`.`Customer` (`idCustomer`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
