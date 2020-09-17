@@ -1,0 +1,27 @@
+https://public.tableau.com/profile/miguel2321#!/vizhome/q3_16003548295860/Sheet1?publish=yes
+q4:
+https://public.tableau.com/profile/miguel2321#!/vizhome/q4_16003545503630/Sheet2?publish=yes
+q5:
+https://public.tableau.com/profile/miguel2321#!/vizhome/q5_16003550003860/Sheet4?publish=yes
+
+q6:
+https://public.tableau.com/profile/miguel2321#!/vizhome/q5_16003550003860/Sheet3?publish=yes
+
+q7:
+https://public.tableau.com/profile/miguel2321#!/vizhome/q5_16003550003860/Sheet5?publish=yes
+
+q8:
+https://public.tableau.com/profile/miguel2321#!/vizhome/q5_16003550003860/Sheet6?publish=yes
+
+q9:
+https://public.tableau.com/profile/miguel2321#!/vizhome/q4_16003545503630/Sheet5?publish=yes
+
+q10:
+https://public.tableau.com/profile/miguel2321#!/vizhome/q4_16003545503630/Sheet5?publish=yes
+
+q11:
+https://public.tableau.com/trusted/B-gEElM7SpGbMtIgNdrbPg==:btM4iYSNk-wkrqfj22pHhaB7?:redirUrl=%2Fprofile%2Fapi%2Fpublish%2Fq4_16003545503630%2FDashboard2
+
+dashboard:
+
+ NFL Team Performance Dashboard
